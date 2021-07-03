@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div> <br> </div>
+    <a href="/catalogo/books" class="btn btn-secondary">Agregar</a>
+   <div> <br> </div>
+    <table class="table table-info">
+    {# Interar libros del catálogo #}
+    
+        <tr class="table-active table-info">
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Editorial</th>
+            <th>Year</th>
+            <th>Volumen</th>
+            <th> </th>
+        </tr>
+        {% for book in books %}
+           
+            <tr>
+                <td> {{ book.id }} </td>
+                <td> {{ book.title }}</td>
+                <td> {{ book.author }}</td>
+                <td><a href="/catalogo/{{ book.editorial }}/books">{{ book.editorial | upper }}</a></td>
+                <td> {{ book.year | add:"2" }} </td>  
+                <td> {{ book.volumen | add:"2" }} </td>      
+                <td> <a href="/book/{{ book.id }}" class="btn btn-sm btn-info">Editar</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

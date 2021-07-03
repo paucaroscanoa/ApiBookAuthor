@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+    <table class="table table-info">  
+        <tr class="table-active table-info">
+            <th>id</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>Nacionality</th>
+            <th>genere</th>
+        </tr>
+        {% for author in object_list %}
+            <tr>
+                <td> {{ author.id }} </td>
+                <td> {{ author.first_name }}</td>
+                <td> {{ author.last_name }}</td>
+                <td> {{ author.nationality }} </td>
+                <td> {{ author.genere }} </td>                  
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
